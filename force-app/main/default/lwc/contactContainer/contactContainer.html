@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Seçim Ekranı (Parent Container)">
+        
+        <p class="slds-m-around_medium">
+            Seçilen Kişinin ID'si: <strong>{selectedId}</strong>
+        </p>
+        <p class="slds-m-around_medium">
+            Kişi Adı: <strong>{dynamicContactName}</strong>
+        </p>        
+
+        <!-- @wire veriyi asenkron (gecikmeli) çektiği için, veri gelene kadar child'ı render etmiyoruz -->
+        <template lwc:if={dynamicContact}>
+            <!-- dynamicContact objesini alt bileşenin contact değişkenine paslıyoruz -->
+            <c-contact-card 
+                contact={dynamicContact} 
+                oncontactselect={handleContactSelection}>
+            </c-contact-card>
+        </template>
+
+    </lightning-card>
+</template>
