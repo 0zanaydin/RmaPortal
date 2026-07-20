@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Kargo İşlemleri" icon-name="custom:custom98">
+        <div class="slds-m-around_medium">
+            <lightning-button 
+                label="Kargo Etiketi Oluştur" 
+                variant="brand" 
+                onclick={handleCreateLabel} 
+                disabled={isLoading}>
+            </lightning-button>
+
+            <!-- Yükleme anında dönecek spinner -->
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="İşleniyor" size="small"></lightning-spinner>
+            </template>
+        </div>
+    </lightning-card>
+</template>
